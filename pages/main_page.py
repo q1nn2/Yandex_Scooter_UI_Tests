@@ -51,12 +51,7 @@ class MainPage(BasePage):
 
     @allure.step("Нажать на логотип Яндекса и перейти в новое окно")
     def click_yandex_logo_and_switch(self):
-        old_windows = set(self.driver.window_handles)
+        old_windows = self.get_window_handles()
         self.click(MainPageLocators.YANDEX_LOGO)
-
-        self.wait.until(
-            lambda driver: len(set(driver.window_handles) - old_windows) == 1
-        )
-        new_window = (set(self.driver.window_handles) - old_windows).pop()
-        self.driver.switch_to.window(new_window)
-        self.wait.until(EC.url_contains("dzen.ru"))
+        self.switch_to_new_window(old_windows)
+        self.wait_for_url_contains("dzen.ru")
