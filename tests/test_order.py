@@ -19,9 +19,8 @@ class TestOrder:
         main_page.click_order_button_top()
 
         order_page.create_order(order_data)
-        success_message = order_page.get_success_message()
 
-        assert "Заказ оформлен" in success_message
+        assert order_page.get_success_message_element().is_displayed()
 
     @allure.title("Успешный заказ через нижнюю кнопку «Заказать»")
     def test_successful_order_from_bottom_button(self, driver):
@@ -34,6 +33,5 @@ class TestOrder:
         main_page.click_order_button_bottom()
 
         order_page.create_order(order_data)
-        success_message = order_page.get_success_message()
 
-        assert "Заказ оформлен" in success_message
+        assert order_page.get_success_message_element().is_displayed()

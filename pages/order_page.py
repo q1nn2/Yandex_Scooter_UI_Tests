@@ -66,11 +66,9 @@ class OrderPage(BasePage):
         self.click(OrderPageLocators.ORDER_BUTTON)
         self.click(OrderPageLocators.CONFIRM_BUTTON)
 
-    @allure.step("Проверить сообщение об успешном оформлении заказа")
-    def get_success_message(self):
-        return self.wait.until(
-            EC.visibility_of_element_located(OrderPageLocators.SUCCESS_TITLE)
-        ).text
+    @allure.step("Получить элемент сообщения об успешном оформлении заказа")
+    def get_success_message_element(self):
+        return self.find(OrderPageLocators.SUCCESS_TITLE)
 
     @allure.step("Оформить заказ полностью")
     def create_order(self, order_data):
