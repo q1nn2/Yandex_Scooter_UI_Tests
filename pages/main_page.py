@@ -36,7 +36,7 @@ class MainPage(BasePage):
     def open_question(self, index):
         locator = MainPageLocators.question(index)
         self.scroll_to(locator)
-        self.click(locator)
+        self.js_click(locator)
 
     @allure.step("Получить ответ на вопрос №{index}")
     def get_answer(self, index):
