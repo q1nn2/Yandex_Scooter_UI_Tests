@@ -23,6 +23,11 @@
 
 ```text
 Sprint_6/
+├── locators/
+│   ├── __init__.py
+│   ├── base_page_locators.py
+│   ├── main_page_locators.py
+│   └── order_page_locators.py
 ├── pages/
 │   ├── __init__.py
 │   ├── base_page.py
@@ -70,7 +75,7 @@ pytest --alluredir=allure_results
 allure serve allure_results
 ```
 
-После успешного прогона папку `allure_results` нужно добавить в Git и запушить в ветку `develop`.
+После успешного прогона результаты из папки `allure_results` нужно добавить в Git и запушить в ветку `develop`.
 
 ## Git для сдачи
 
